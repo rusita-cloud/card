@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>김민준 | 풀스택 개발자 웹 명함</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Lucide Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <!-- 배경 데코레이션 블러 구체 -->
+  <div class="bg-glow glow-1"></div>
+  <div class="bg-glow glow-2"></div>
+  <div class="bg-glow glow-3"></div>
+
+  <main class="card-wrapper">
+    <!-- 카드 플립 컨테이너 -->
+    <div class="business-card" id="businessCard">
+      <!-- 카드 앞면 (Front) -->
+      <div class="card-face card-front">
+        <div class="card-glass-shine"></div>
+
+        <!-- 상단 헤더 & 상태 뱃지 -->
+        <div class="card-header">
+          <div class="status-badge">
+            <span class="status-dot"></span>
+            <span>Available for Projects</span>
+          </div>
+          <button class="flip-btn" id="flipToBackBtn" title="QR 코드 및 상세 정보 보기" aria-label="카드 뒤집기">
+            <i class="fa-solid fa-qrcode"></i>
+            <span>QR 코드</span>
+          </button>
+        </div>
+
+        <!-- 캐릭터 아바타 영역 -->
+        <div class="avatar-container">
+          <div class="avatar-ring"></div>
+          <div class="avatar-svg-wrap">
+            <!-- 친근한 개발자 캐릭터 SVG (안경 없음 + 멋진 흰머리 포인트) -->
+            <svg class="developer-avatar" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="avatarBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#60a5fa" />
+                  <stop offset="50%" stop-color="#818cf8" />
+                  <stop offset="100%" stop-color="#c084fc" />
+                </linearGradient>
+                <linearGradient id="hoodieGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#3b82f6" />
+                  <stop offset="100%" stop-color="#1d4ed8" />
+                </linearGradient>
+                <linearGradient id="skinGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#fff1ee" />
+                  <stop offset="100%" stop-color="#fed7aa" />
+                </linearGradient>
+                <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+                  <feDropShadow dx="0" dy="3" stdDeviation="4" flood-opacity="0.18" />
+                </filter>
+              </defs>
+
+              <!-- 배경 원 (화사한 파스텔 그라데이션) -->
+              <circle cx="100" cy="100" r="94" fill="url(#avatarBgGrad)" />
+
+              <!-- 옷 (산뜻한 블루 후드티) -->
+              <path d="M42 186 C42 144, 64 136, 100 136 C136 136, 158 144, 158 186 Z" fill="url(#hoodieGrad)" />
+              <path d="M82 138 L100 162 L118 138 Z" fill="#60a5fa" opacity="0.9" />
+              <!-- 후드티 끈 -->
+              <path d="M90 152 Q90 174 88 180" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" />
+              <path d="M110 152 Q110 174 112 180" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" />
+
+              <!-- 목 -->
+              <rect x="88" y="117" width="24" height="24" rx="4" fill="#fdba74" opacity="0.35" />
+              <path d="M88 120 Q100 132 112 120" fill="url(#skinGrad)" />
+
+              <!-- 귀 -->
+              <circle cx="56" cy="98" r="11" fill="url(#skinGrad)" />
+              <circle cx="56" cy="98" r="6" fill="#fca5a5" opacity="0.7" />
+              <circle cx="144" cy="98" r="11" fill="url(#skinGrad)" />
+              <circle cx="144" cy="98" r="6" fill="#fca5a5" opacity="0.7" />
+
+              <!-- 얼굴 -->
+              <ellipse cx="100" cy="98" rx="44" ry="43" fill="url(#skinGrad)" />
+
+              <!-- 러블리 볼터치 -->
+              <ellipse cx="73" cy="108" rx="9" ry="5" fill="#fb7185" opacity="0.3" />
+              <ellipse cx="127" cy="108" rx="9" ry="5" fill="#fb7185" opacity="0.3" />
+
+              <!-- 머리카락 뒷배경 (다크 그레이 차콜) -->
+              <path d="M56 85 C56 50, 144 50, 144 85" fill="#334155" />
+
+              <!-- 눈썹 (자연스러운 미소 눈썹) -->
+              <path d="M72 82 Q82 77 90 81" stroke="#334155" stroke-width="3" stroke-linecap="round" fill="none" />
+              <path d="M110 81 Q118 77 128 82" stroke="#334155" stroke-width="3" stroke-linecap="round" fill="none" />
+
+              <!-- 또렷하고 맑은 눈 (안경 없이 시원한 인상) -->
+              <ellipse cx="80" cy="95" rx="5.5" ry="6" fill="#1e293b" />
+              <circle cx="82" cy="93" r="2.2" fill="#ffffff" />
+              <circle cx="78.5" cy="97" r="1" fill="#ffffff" />
+
+              <ellipse cx="120" cy="95" rx="5.5" ry="6" fill="#1e293b" />
+              <circle cx="122" cy="93" r="2.2" fill="#ffffff" />
+              <circle cx="118.5" cy="97" r="1" fill="#ffffff" />
+
+              <!-- 귀여운 미소 코 & 입 -->
+              <circle cx="100" cy="103" r="1.5" fill="#f97316" />
+              <path d="M92 112 Q100 121 108 112" stroke="#1e293b" stroke-width="2.6" stroke-linecap="round" fill="none" />
+
+              <!-- 머리카락 앞머리 베이스 (다크 슬레이트) -->
+              <path d="M56 82 C60 48, 140 48, 144 82 C134 68, 118 63, 100 66 C86 63, 68 70, 56 82 Z" fill="#334155" />
+              <path d="M66 66 C76 74, 90 73, 97 78 C93 70, 88 64, 80 63" fill="#1e293b" opacity="0.6" />
+              <path d="M134 66 C124 74, 110 73, 103 78 C107 70, 112 64, 120 63" fill="#1e293b" opacity="0.6" />
+
+              <!-- ★ 멋진 흰머리 / 은발 하이라이트 포인트 (Hair Highlight Strands) ★ -->
+              <!-- 정수리 및 앞머리 흰머리 가닥들 -->
+              <path d="M76 56 C86 52, 102 54, 116 60 C106 58, 92 57, 80 61 Z" fill="#f8fafc" />
+              <path d="M68 64 C76 58, 90 56, 102 58 C92 59, 82 62, 74 69 Z" fill="#e2e8f0" />
+              <!-- 앞머리 포인트 흰머리 가닥 -->
+              <path d="M84 64 Q94 72 96 78 C93 72, 88 68, 83 67 Z" fill="#ffffff" filter="url(#softShadow)" />
+              <path d="M106 63 Q114 70 118 76 C114 71, 108 67, 104 65 Z" fill="#ffffff" filter="url(#softShadow)" />
+              <path d="M62 76 Q70 68, 80 65" stroke="#f1f5f9" stroke-width="2.5" stroke-linecap="round" fill="none" />
+              <path d="M122 66 Q132 72, 138 78" stroke="#f1f5f9" stroke-width="2.5" stroke-linecap="round" fill="none" />
+              <path d="M96 52 Q105 52, 114 55" stroke="#ffffff" stroke-width="2" stroke-linecap="round" fill="none" />
+
+              <!-- 산뜻한 화이트/블루 헤드폰 -->
+              <path d="M50 92 C50 58, 150 58, 150 92" stroke="#ffffff" stroke-width="5" stroke-linecap="round" fill="none" filter="url(#softShadow)" />
+              <rect x="44" y="86" width="11" height="26" rx="5.5" fill="#3b82f6" stroke="#ffffff" stroke-width="2" />
+              <rect x="145" y="86" width="11" height="26" rx="5.5" fill="#3b82f6" stroke="#ffffff" stroke-width="2" />
+
+              <!-- 반짝임 이펙트 -->
+              <path d="M164 54 L166 60 L172 62 L166 64 L164 70 L162 64 L156 62 L162 60 Z" fill="#fde047" />
+              <circle cx="36" cy="72" r="3" fill="#ffffff" opacity="0.9" />
+              <circle cx="44" cy="62" r="1.5" fill="#ffffff" opacity="0.7" />
+            </svg>
+          </div>
+          <span class="role-chip">Full-Stack Dev</span>
+        </div>
+
+        <!-- 기본 정보 -->
+        <div class="profile-info">
+          <div class="name-group">
+            <h1 class="user-name">김민준</h1>
+            <span class="en-name">Minjun Kim</span>
+          </div>
+          <p class="user-job">바이브코딩 풀스택 개발자</p>
+          <p class="user-intro">
+            "아이디어를 생동감 넘치는 코드로 변환하며,<br>
+            직관적이고 유려한 웹 경험을 만듭니다."
+          </p>
+        </div>
+
+        <!-- 스킬 태그 -->
+        <div class="skills-tags">
+          <span class="tag">#React</span>
+          <span class="tag">#Node.js</span>
+          <span class="tag">#TypeScript</span>
+          <span class="tag">#VibeCoding</span>
+          <span class="tag">#Next.js</span>
+          <span class="tag">#Python</span>
+        </div>
+
+        <!-- 연락처 목록 & 빠른 복사 버튼 -->
+        <div class="contact-list">
+          <!-- 이메일 -->
+          <div class="contact-item">
+            <div class="contact-icon email-icon">
+              <i class="fa-solid fa-envelope"></i>
+            </div>
+            <div class="contact-text">
+              <span class="contact-label">Email</span>
+              <a href="mailto:kimmj@gmail.com" class="contact-value" id="emailVal">kimmj@gmail.com</a>
+            </div>
+            <button class="copy-btn" data-copy="kimmj@gmail.com" title="이메일 복사" aria-label="이메일 복사">
+              <i class="fa-regular fa-copy"></i>
+            </button>
+          </div>
+
+          <!-- 전화번호 -->
+          <div class="contact-item">
+            <div class="contact-icon phone-icon">
+              <i class="fa-solid fa-phone"></i>
+            </div>
+            <div class="contact-text">
+              <span class="contact-label">Phone</span>
+              <a href="tel:010-3412-6530" class="contact-value" id="phoneVal">010-3412-6530</a>
+            </div>
+            <button class="copy-btn" data-copy="010-3412-6530" title="전화번호 복사" aria-label="전화번호 복사">
+              <i class="fa-regular fa-copy"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- 카드 하단 액션 버튼 그룹 -->
+        <div class="action-buttons">
+          <button class="action-btn primary" id="saveContactBtn">
+            <i class="fa-solid fa-address-card"></i>
+            <span>연락처 저장</span>
+          </button>
+          <button class="action-btn secondary" id="shareBtn">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            <span>명함 공유</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 카드 뒷면 (Back - QR 코드 & 상세 정보) -->
+      <div class="card-face card-back">
+        <div class="card-glass-shine"></div>
+        <div class="card-header back-header">
+          <h2 class="back-title">디지털 연락처 QR</h2>
+          <button class="flip-btn" id="flipToFrontBtn" title="앞면으로 돌아가기" aria-label="앞면으로 돌아가기">
+            <i class="fa-solid fa-rotate-left"></i>
+            <span>앞면 보기</span>
+          </button>
+        </div>
+
+        <div class="back-content">
+          <div class="qr-box">
+            <!-- QR 코드 이미지 (모바일 카메라 스캔 가능) -->
+            <img
+              src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=MECARD:N:김민준;TEL:01034126530;EMAIL:kimmj@gmail.com;NOTE:바이브코딩 풀스택 개발자;;"
+              alt="김민준 개발자 연락처 QR코드" class="qr-image" id="qrImg">
+            <div class="qr-scan-line"></div>
+          </div>
+          <p class="qr-desc">스마트폰 카메라로 스캔하면<br>연락처가 즉시 저장됩니다.</p>
+
+          <div class="vcard-preview">
+            <div class="preview-row">
+              <span class="p-label">성명</span>
+              <span class="p-value">김민준 (Minjun Kim)</span>
+            </div>
+            <div class="preview-row">
+              <span class="p-label">소속/직무</span>
+              <span class="p-value">바이브코딩 풀스택 개발자</span>
+            </div>
+            <div class="preview-row">
+              <span class="p-label">이메일</span>
+              <span class="p-value">kimmj@gmail.com</span>
+            </div>
+            <div class="preview-row">
+              <span class="p-label">연락처</span>
+              <span class="p-value">010-3412-6530</span>
+            </div>
+          </div>
+
+          <div class="social-links">
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-item" title="GitHub">
+              <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="mailto:kimmj@gmail.com" class="social-item" title="Mail">
+              <i class="fa-solid fa-envelope"></i>
+            </a>
+            <a href="tel:010-3412-6530" class="social-item" title="Call">
+              <i class="fa-solid fa-phone"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="back-footer">
+          <span>&copy; 2026 Minjun Kim. All rights reserved.</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- 복사 성공 토스트 알림 -->
+  <div class="toast" id="toast">
+    <i class="fa-solid fa-check-circle"></i>
+    <span id="toastMsg">클립보드에 복사되었습니다!</span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
